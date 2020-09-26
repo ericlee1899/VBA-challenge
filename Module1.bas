@@ -28,6 +28,22 @@ Sub StockMacro():
             Cells(1, 11).Value = "Percent Change"
             Cells(1, 12).Value = "Total Stock Volume"
             
-            
+                'real coding begins
+                If Cells(i + 1, 1).Value <> Cells(i, 1).Value Then
+                    'setting ticker symbol
+                    tickersymbol = Cells(i, 1).Value
+                    'calculating the changes
+                    closeprice = Cells(i, 6).Value
+                    changeprice = closeprice - openprice
+                    
+                        If openprice <> 0 Then
+                            changepercent = (changeprice / openprice) * 100
+                        Else
+                            changepercent = "Divided by 0"
+                        End If
+                            
+                    totalticker = totalticker + Cells(i, 7).Value
+                    
+                
         Next i
 End Sub
