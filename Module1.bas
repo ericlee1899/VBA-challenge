@@ -20,7 +20,7 @@ Sub StockMacro():
             Dim changeprice As Double
             changeprice = 0
             Dim changepercent As Double
-            changepercent As Double
+            changepercent = 0
             
             'declaring headers
             Cells(1, 9).Value = "Ticker"
@@ -47,11 +47,18 @@ Sub StockMacro():
                     
                         'determining if positive or negative yearly change by colour (green/red if positive/negative)
                         If (Cells(i, 10).Value > 0) Then
-                            Range("J").Interior.Color = 4
+                            Range("J").Interior.ColorIndex = 4
                         Else
-                            Range("J").Interior.Color = 3
+                            Range("J").Interior.ColorIndex = 3
                         End If
                         
+                    'resetting / finding next ticker
+                    changeprice = 0
+                    closeprice = 0
+                    openprice = Cells(i + 1, 3).Value
                     
+                End If
+        
         Next i
+        
 End Sub
