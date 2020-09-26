@@ -46,17 +46,20 @@ Sub StockMacro():
                     totalticker = totalticker + Cells(i, 7).Value
                     
                         'determining if positive or negative yearly change by colour (green/red if positive/negative)
-                        If (Cells(i, 10).Value > 0) Then
-                            Range("J").Interior.ColorIndex = 4
-                        Else
-                            Range("J").Interior.ColorIndex = 3
-                        End If
+                       ' If (Cells(i, 10).Value > 0) Then
+                       '     Range("J").Interior.ColorIndex = 4
+                       ' Else
+                       '     Range("J").Interior.ColorIndex = 3
+                       ' End If
                         
                     'resetting / finding next ticker
                     changeprice = 0
                     closeprice = 0
                     openprice = Cells(i + 1, 3).Value
-                    
+                Else
+                    ' Encrease the Total Ticker Volume
+                    Total_Ticker_Volume = Total_Ticker_Volume + CurrentWs.Cells(i, 7).Value
+                
                 End If
         
         Next i
