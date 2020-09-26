@@ -42,8 +42,16 @@ Sub StockMacro():
                             changepercent = "Divided by 0"
                         End If
                             
+                    'solving for total ticker volume
                     totalticker = totalticker + Cells(i, 7).Value
                     
-                
+                        'determining if positive or negative yearly change by colour (green/red if positive/negative)
+                        If (Cells(i, 10).Value > 0) Then
+                            Range("J").Interior.Color = 4
+                        Else
+                            Range("J").Interior.Color = 3
+                        End If
+                        
+                    
         Next i
 End Sub
